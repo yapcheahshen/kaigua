@@ -1,0 +1,21 @@
+{
+  "name": "kaigua",
+  "version": "0.0.1",
+  "description": "plug in enhancement for Html files",
+  "type":"module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://yapcheahshen@github.com/yapcheahshen/kaigua.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yapcheahshen/kaigua/issues"
+  },
+  "homepage": "https://github.com/yapcheahshen/kaigua#readme"
+}
