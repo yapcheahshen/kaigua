@@ -1,4 +1,4 @@
-
+import { throttle,debounce } from "./utils.js";
 const addRel=(rel,href)=>{
     const lnk=document.createElement('link');
     lnk.rel=rel;
@@ -36,12 +36,19 @@ const loadDatabaseJs=()=>{ //each database has a js with same name
         document.head.appendChild(ele);
     }
 }
-export const equipHTML=def_onclick=>{
+export const equipHTML=({onclick,onscroll})=>{
     const rootrelpath=getRelativePath();
     addRel('stylesheet',rootrelpath+'global.css');
-    addRel('stylesheet',rootrelpath+'pryt.css');
+    addRel('stylesheet',rootrelpath+'cap.css');
     addRel('icon',rootrelpath+'favicon.svg');
     loadDatabaseJs();
-    const rootnode=document.getElementsByTagName('xml')[0];
-    if (typeof rootnode!=='undefined')rootnode.onclick=def_onclick;
+    const rootnode=document.querySelector('xml')||document.querySelector('htll');
+    if (typeof rootnode!=='undefined') {
+        rootnode.onclick=onclick;
+        
+    }  
+    if (onscroll) {
+        // let timer
+        window.addEventListener('scroll',debounce(onscroll,500));
+    }
 }
