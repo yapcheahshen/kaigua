@@ -1,6 +1,12 @@
 export const getCursorWord=()=>{
-    const sel=getSelection()
+    const sel=getSelection();
+    let tofind=sel.toString();
     let offset=sel.anchorOffset;
+    
+    if (tofind.trim()) {
+        return {tofind,offset,anchor:sel.anchorNode}
+    }
+
     const psib=sel.anchorNode.previousSibling ;
     if (psib && psib.dataset&& psib.dataset.offset) {
         offset+=parseInt(psib.dataset.offset)+psib.innerText.length;
@@ -14,7 +20,7 @@ export const getCursorWord=()=>{
         // offset--;
         // dictch=str.substr(offset,50);
     // }
-    let tofind=dictch;
+    tofind=dictch;
 
     return {tofind,offset,anchor:sel.anchorNode}
 }
